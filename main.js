@@ -1,3 +1,40 @@
 function main(){
-    console.log('sudah masuk')
+    var kanvas = document.getElementById('kanvas');
+    var gl = kanvas.getContext('webgl');
+
+    if(!gl){
+        console.log('gl gak ada');
+    }
+
+    // vertex shader
+    var vertexShaderCode = 
+    "void main() {" +
+    "}";
+
+    var vertexShaderObject = gl.createShader(gl.VERTEX_SHADER);
+    gl.shaderSource(vertexShaderObject, vertexShaderCode);
+    gl.compileShader(vertexShaderObject);
+    // sapai sini sudah jadi .o
+
+    // fragment shader
+    var fragmentShaderCode = 
+    `
+    void main(){
+
+    }
+    `;
+    
+    var fragmentShaderObject = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(fragmentShaderObject, fragmentShaderCode);
+    gl.compileShader(fragmentShaderObject);
+
+    var shaderProgram = gl.createProgram();//sudah dari executabel (.exe)
+    gl.attachShader(shaderProgram, vertexShaderObject);
+    gl.attachShader(shaderProgram, fragmentShaderObject)
+    gl.linkProgram(shaderProgram);
+    gl.useProgram(shaderProgram);
+
+    gl.clearColor(1.0, 0.65, 0.0, 1.0);
+    //             R    G    B    A
+    gl.clear(gl.COLOR_BUFFER_BIT);
 }
