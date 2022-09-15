@@ -3,9 +3,10 @@ function main(){
     var gl = kanvas.getContext('webgl');
 
     var vertices = [
-        0.95, 0.95,
+        0.8, 0.8,
         0.0, 0.0,
-        -0.95, 0.95
+        -0.8, 0.8,
+        
     ];
 
     var buffer = gl.createBuffer();
@@ -66,5 +67,5 @@ function main(){
     //             Red    Green    Blue    Transparasi
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    gl.drawArrays(gl.LINE_LOOP, 0, 3);
 }
